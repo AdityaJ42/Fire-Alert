@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fire Alert!</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>	
+	
+</head>
+<body>
+	<div id="sidebar"> 
+	 	<table>
+	 		<tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+			<tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+			<tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+			<tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+			<tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+			<tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+		</table>
+	</div> 
+
+	<div id="content">
+		<section class="parallax"></section>
+		<br>		
+		<div id="toggle" class="container">
+			<marquee style="font-size: 18px;" onmouseover="this.stop();" onmouseout="this.start();">{{ texts }}</marquee>
+			<hr>
+			<h2 class="heading">Recent News</h2>
+			<br><br>
+
+			{% for k, v in publisher.items %}
+				<div class="card wow slideInRight">  
+			  		<div class="card-body">
+			  			<div class="row">	
+			  				<div class="col-md-6">
+			  					<h2> {{ v.title }} </h2>	
+			  					<hr>		    
+			  					<blockquote class="blockquote mb-0">
+					      			<p> {{ v.content }} </p>
+			    				</blockquote>
+			    				<a href="{{ v.url }}" target="blank" class="more">Click here to see more </a>
+			  				</div>
+
+			  				<div class="col-md-6">
+			  					<img src="{{ v.image }}" id="newsimage">
+			  				</div>	
+			  		  	</div>
+					</div>
+				</div>
+				<br><br>
+			{% endfor %}				    
+
+		</div>
+	</div>
+
+</body>
+</html>

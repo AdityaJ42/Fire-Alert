@@ -1,0 +1,9 @@
+Django==1.11.8
+python-decouple
+requests==2.18.4
+newsapi-python
+geocoder
+google-api-python-client
+Pillow
+tweepy
+textblob

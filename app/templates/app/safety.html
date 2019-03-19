@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fire Alert!</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
+</head>
+<body>
+
+	<div id="sidebar"> 
+	 	<table>
+	 		<tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+			<tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+			<tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+			<tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+			<tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+			<tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+		</table>
+	</div> 
+
+	<div id="content">
+		<section class="parallax"></section>
+		<br>		
+		<div id="toggle" class="container">
+			<h2 class="heading">Fire Safety Guidelines</h2>
+			<table style="margin-top: 5vh; text-align: left;">
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> In case you accidentally catch fire, remember to STOP, DROP and ROLL. </td>
+				</tr>
+
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> Install smoke alarms on every level of your home, inside bedrooms and outside sleeping areas. </td>
+				</tr>
+				
+				<tr>
+					<td> <i class="fa fa-check" aria-hidden="true" ></i> </td>	
+					<td> Test smoke alarms every month. If they’re not working, change the batteries. </td>			
+				</tr>
+
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> Talk with all family members about a fire escape plan and practice the plan twice a year. </td>			
+				</tr>
+
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> If a fire occurs in your home, <strong>GET OUT, STAY OUT and CALL FOR HELP.</strong> Never go back inside for anything or anyone. </td>		
+				</tr>
+
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> Don't overload electrical circuits by putting too many lights or equipment on a single line. </td>			
+				</tr>
+				
+				<tr>
+					<td>  <i class="fa fa-check" aria-hidden="true" ></i>  </td>	
+					<td> Keep heating, air conditioning and maintenance areas clean and free of any flammable materials. </td>		
+				</tr>		
+
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>			

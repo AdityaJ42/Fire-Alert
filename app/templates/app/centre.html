@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fire Alert!</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
+</head>
+<body>
+
+	<div id="sidebar"> 
+	 	<table>
+	 		<tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+			<tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+			<tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+			<tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+			<tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+			<tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+		</table>
+	</div> 
+
+	<div id="content">
+		<section class="parallax"></section>
+		<br>		
+
+		<div id="toggle" class="container">
+			<h2 class="heading">Fire Stations List</h2>
+			<br><br>	    
+			{% for station in stations %}
+		    <div class="row" style="justify-content: center;">
+		    	<div class="card wow slideInRight" style="width: 70%;">
+		    		<h2 style="text-align: center; padding: 2vh; border-bottom: 1px solid gray;">{{ station.name }}</h2>
+		    		<div class="card-body">
+		    			<p class="card-text">Address: {{ station.address }}</p>
+		    			<p class="card-text">Contact Details: {{ station.contact }}</p>
+		    			<a href="{% url 'app:directions2' station.id %}"><button id="getdir" class="btn btn-info" style="float: right;">Navigate <i class="fas fa-location-arrow"></i></button></a>
+		    			<hr>
+			    	</div>
+			    </div>
+		    </div>
+		    <br><br>
+		    {% endfor %}
+		    <br><br>
+		</div>
+	</div>
+
+</body>
+</html>

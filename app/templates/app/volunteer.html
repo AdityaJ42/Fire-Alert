@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fire Alert!</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+
+	<script type="text/javascript">
+	    new WOW().init();
+	</script>	
+
+</head>
+<body>
+	<div id="sidebar"> 
+	 	<table>
+	 		<tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+			<tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+			<tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+			<tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+			<tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+			<tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+		</table>
+	</div> 
+
+	<div id="content">
+		<section class="parallax"></section>		
+		<br>
+		<div id="toggle" class="container">			
+			<h2 class="heading">Volunteer List</h2>
+			<br><br>
+		    <form method="post">
+		    	{% csrf_token %}
+				<div class="input-group pull-right" style="margin: 1vh; width: 40%; float: right;">
+				    <input type="text" class="form-control" placeholder="Search by area" name="area">
+				    <div class="input-group-append">
+					    <button class="btn btn-secondary" type="submit">
+					        <i class="fa fa-search"></i>
+					    </button>
+				    </div>
+				</div>
+			</form>
+			<br><br><br>	    
+
+		    <center>
+		    <div class="row">
+                {% for volunteer in volunteer_list %}
+                <div class="col-4 card m-5" style="width: 40vh;">
+                    <img class="card-img-top image" src="/media/{{ volunteer.picture }}">
+                    <div class="card-block" style="padding: 2vh;">
+                        <h4 class="card-title mt-3">{{ volunteer.name }}</h4>
+                        <div class="meta">
+                            <a>Contact : {{ volunteer.contact }}</a>
+                            <br>
+                            <p>Address : {{ volunteer.address }}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                    	<a href="{% url 'app:directions' volunteer.id %}"><button id="getdir" class="btn btn-info" style="float: right;">Navigate <i class="fas fa-location-arrow"></i></button></a>
+                    </div>
+                </div>
+                {% endfor %}
+	    	</center>	    
+		</div>
+	</div>
+	<div id="map" style="display: none;">
+	</div>
+	<input type="text" id="location" name="user_loc" disabled="true">
+
+</body>
+</html>

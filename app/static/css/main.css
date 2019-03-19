@@ -1,0 +1,186 @@
+		@import url('https://fonts.googleapis.com/css?family=Raleway:600');
+		
+		/*#4B0082*/
+		#sidebar{
+			max-height: 100%;
+			height: 100%;
+			/*margin-top: 0;
+			padding: 0;*/
+			background-color: #4B0082;
+			float: left;
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 18%;
+			max-width: 18%: 
+		}
+
+		#content {
+/*			background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('./fire.jpg');
+			background-image: url('../images/fire.jpg');
+			background-size: cover;
+			background-position: center;
+  			background-repeat: no-repeat;*/
+  			font-size: 18px;
+			float: right;
+			margin-left: 20px;
+			width: 82%;
+			max-width: 82%;
+			height: 100%;
+			max-height: 100%;
+			/*background-color: #374046;*/
+		}
+
+
+		body{
+			color: black;
+  			font-family: 'Raleway', sans-serif;
+  			height: 100%;
+  			background-color: #F0F0F0;
+		}
+
+		a{
+			text-transform: none;
+			text-decoration: none;
+			color: white;
+			font-size: 20px;
+		}
+
+		#sidebar a:hover {
+			text-decoration: none;
+			color: white;
+			font-size: 22px;	
+			font-weight: bold;	
+			opacity: 0.4;	
+		}
+
+		td{
+			padding: 3vh;
+		}
+		table{
+			text-align: center;
+			margin: auto;
+			margin-top: 20%;
+		}
+		html{
+			height: 100%;
+		}
+
+		#toggle {
+			padding: 7vh;
+			background-color: #F0F0F0;
+		}
+
+		.card {
+			height: auto;
+			width: -webkit-fill-available;
+			border: 1px solid gray; 
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+		}
+
+		.heading { 
+			background-color: white;
+			border-radius: 2vh;
+			padding: 3vh;
+			text-align: center;	
+			box-shadow: 2px 2px 3px rgba(0,0,0,0.12), -2px -2px 2px rgba(0,0,0,0.24);
+		}
+
+		.image {
+			vertical-align: middle;
+			height: 30vh;
+			contain: content;
+		}
+
+		.parallax {
+			text-align: center;
+			background: url('../images/fire1.jpg');
+			background-size: cover;
+			height: 500px;
+			width: 100%;		
+		}
+
+		.parallax h2{
+			padding-top: 160px;
+			font-size: 40px;
+		}		
+
+		.btn-get-started {
+		  	font-family: 'Raleway';
+		  	text-transform: uppercase;
+		  	font-weight: 500;
+		  	background-color: white;
+		  	font-size: 16px;
+		  	letter-spacing: 1px;
+		  	display: inline-block;
+		  	padding: 8px 28px;
+		  	border-radius: 50px;
+		  	transition: 0.5s;
+		  	margin: 10px;
+		  	border: 2px solid #fff;
+		  	color: black;
+		}
+
+		.btn-get-started:hover {
+			text-decoration: none;
+		}
+
+		.card-footer {
+		    font-size: 1em;
+		    position: static;
+		    bottom: 0;
+		    left: 0;
+		    max-width: 100%;
+		    padding: .75em 1em;
+		    color: rgba(0, 0, 0, .4);
+		    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+		    background: #fff;
+		}		
+
+		#newsimage {
+			height: 40vh;
+			width: 100%;
+		}
+
+		.more {
+			color: blue;
+		}
+
+		.more:hover {
+			text-decoration: none;
+		}
+
+		input[type=text], input[type=password], input[type=textarea], input[type=tel], textarea {
+		    font-size: 18px;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    border: 1px solid gray;
+		    box-sizing: border-box;
+		    border-radius: 2vh;
+		}	
+
+		textarea {
+			height: 15vh;
+		}
+
+		input:active {
+			border: none;
+		}	
+
+		label {
+			vertical-align: middle;
+		  	width: 40vh;
+		  	text-align: right;
+		}​	
+
+		tr img {
+			height: auto;
+			width: 100%;
+			padding: 0;
+			margin: 0; 
+		}
+
+		.fa-check{
+			color: green;
+			font-size: 25px;
+		}		

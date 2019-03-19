@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fire Alert!</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
+</head>
+<body>
+
+  <div id="sidebar"> 
+    <table>
+      <tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+      <tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+      <tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+      <tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+      <tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+      <tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+    </table>
+  </div> 
+
+  <div id="content">
+    <section class="parallax"></section>
+    <br>    
+    <div id="toggle" class="container">
+      <h2 class="heading">Location</h2>
+      <br><br>  
+      <div id="map" style="width: 400px; height: 400px; margin: auto;"></div>
+      <br><br>
+          <form method="post" style="text-align: center;">
+            {% csrf_token %}
+            <input type="text" id="user_loc" name="user_loc">
+            <button type="submit">Get Directions</button>
+          </form>
+      <br><br>
+
+      <!-- User Location Data -->
+      <script>
+            // Note: This example requires that you consent to location sharing when
+            // prompted by your browser. If you see the error "The Geolocation service
+            // failed.", it means you probably did not give permission for the browser to
+            // locate you.
+            var map, infoWindow;  
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 6
+              });
+              infoWindow = new google.maps.InfoWindow;
+
+              // Try HTML5 geolocation.
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };
+                  infoWindow.setPosition(pos);
+                  document.getElementById("user_loc").value = pos.lat + "," + pos.lng;
+                  infoWindow.setContent('Location found.');
+                  infoWindow.open(map);
+                  map.setCenter(pos);
+                });
+              } else {
+                // Browser doesn't support Geolocation
+                // handleLocationError(false, infoWindow, map.getCenter());
+                alert('Error');
+              }
+            }
+
+            // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            //   infoWindow.setPosition(pos);
+            //   infoWindow.setContent(browserHasGeolocation ?
+            //                         'Error: The Geolocation service failed.' :
+            //                         'Error: Your browser doesn\'t support geolocation.');
+            //   infoWindow.open(map);
+            // }
+          </script>
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+          </script>
+      </div>
+    </div>
+</body>
+</html>

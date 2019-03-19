@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fire Alert!</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+
+</head>
+<body>
+
+	<div id="sidebar"> 
+	 	<table>
+	 		<tr><a href="{% url 'app:home' %}"><img id="logo" src="../../static/images/logo.png" style="width: 100%;"></a></tr>
+			<tr><td> <a href="{% url 'app:home' %}"> Home </a> </td> </tr>
+			<tr><td>  <a href="{% url 'app:register' %}"> Register as volunteer </a> </td></tr>
+			<tr><td> <a href="{% url 'app:all_volunteers' %}"> Find a volunteer</a> </td></tr>
+			<tr><td> <a href="{% url 'app:centres' %}"> Find a center</a> </td></tr>
+			<tr><td> <a href="{% url 'app:safety' %}"> Safety Guidelines</a> </td></tr>
+		</table>
+	</div> 
+
+	<div id="content">
+		<section class="parallax"></section>
+		<br>		
+		<div id="toggle" class="container">
+			<h2 class="heading">Register as a Volunteer</h2>
+			<br><br><br>
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form %}
+					<div class="form-group" style="display: table-row;">
+			<!-- 			<div>
+							<span class="text-danger la">{{ field.errors }}</span>
+						</div>  -->
+						<span>{{ field.label_tag }}</span>
+						&nbsp;&nbsp;&nbsp;
+						<span>{{ field }}</span>
+					</div>
+					<br><br>
+				{% endfor %}
+				<br><br>
+				<div style="text-align: center;">				
+					<button class="btn btn-success" type="submit" style="text-align: center; width: 20vh;">Sign Up</button>
+				</div>
+				<br><br><br>
+			</form>
+		</div>
+	</div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&key=YOUR_API_KEY"></script>
+	<script>
+	    google.maps.event.addDomListener(window, 'load', function () {
+	        var places = new google.maps.places.Autocomplete(document.getElementById('id_address'));
+	        google.maps.event.addListener(places, 'place_changed', function () {
+	            var place = places.getPlace();
+	        });
+	    });
+</script>
+</body>
+</html>
